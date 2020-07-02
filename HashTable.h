@@ -38,7 +38,6 @@ class HashTable
         void insert(const T&);
         ///Uses the hashing function to determine if an element exists in the table.
         ///Hash the given element, then call find on the list there.
-		///Be sure to use a reference variable for the hashed list local variable, if you use one.
         iterator find(const T&);
 
     private:
@@ -82,7 +81,7 @@ class HashTable<T>::iterator
             return *this;
         
         }
-    const T& operator*() const{return *node;}///return the data at the current node}
+    const T& operator*() const{return *node;}///return the data at the current node
     bool operator==(const iterator& b) const { return (bucket == b.bucket && node == b.node);}///the buckets are equal and the nodes are equal}
     bool operator!= (const iterator& b) const {return !(*this == b);}///invert the above condition}
 };
@@ -132,7 +131,6 @@ void HashTable<T>::insert(const T& t)
 template<typename T>
 ///Uses the hashing function to determine if an element exists in the table.
 ///Hash the given element, then call find on the list there.
-///Be sure to use a reference variable for the hashed list local variable, if you use one.
 typename HashTable<T>::iterator HashTable<T>::find(const T& t)
 {
     size_t i = hash_it(t);
